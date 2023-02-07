@@ -13,7 +13,7 @@
 {{--                <livewire:room.messages :room="$room" :messages="$messages" />--}}
 
 
-{{--                <livewire:room.new-message :room="$room" />--}}
+                <livewire:room.new-message :room="$room" />
             </div>
         </div>
     </div>
