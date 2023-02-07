@@ -23,4 +23,8 @@ class Room extends Model
     {
         return '#';
     }
+    protected $fillable = [
+        'name',
+        'slug'
+    ];
 }

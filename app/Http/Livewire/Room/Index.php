@@ -12,4 +12,7 @@ class Index extends Component
         $rooms = Room::latest()->paginate(50);
         return view('livewire.room.index',compact('rooms'));
     }
+    protected $listeners = [
+        'room.added' => '$refresh'
+    ];
 }
