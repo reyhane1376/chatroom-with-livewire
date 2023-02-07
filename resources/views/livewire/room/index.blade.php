@@ -9,11 +9,11 @@
         </div>
         <div class="p-6">
             <h3 class="text-xl font-bold pb-4 border-b mb-4">List Chat Room</h3>
-
+            @foreach($rooms as $room)
                 <div>
-                    <a href="" class="text-lg font-medium hover:underline"></a>
+                    <a href="{{ $room->path() }}" class="text-lg font-medium hover:underline">{{ $room->name }}</a>
                 </div>
-
+            @endforeach
         </div>
     </div>
 
