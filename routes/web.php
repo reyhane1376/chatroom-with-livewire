@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 Route::middleware('auth')->group(function (){
     Route::get('/rooms',\App\Http\Livewire\Room\Index::class);
+    Route::get('/rooms/{room:slug}',\App\Http\Livewire\Room\SingleRoom::class)->name('single.room');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');

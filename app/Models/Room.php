@@ -21,7 +21,7 @@ class Room extends Model
 
     public function path()
     {
-        return '#';
+        return route('single.room',$this->slug);
     }
     protected $fillable = [
         'name',
