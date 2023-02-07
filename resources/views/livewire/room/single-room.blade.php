@@ -6,11 +6,11 @@
         <div class="flex h-full">
             <div class="w-3/12 h-full border-r border-gray-200 mr-4">
 
-{{--                <livewire:room.users :room="$room" />--}}
+                <livewire:room.users :room="$room" />
             </div>
             <div class="w-9/12 flex flex-col justify-between">
 
-{{--                <livewire:room.messages :room="$room" :messages="$messages" />--}}
+                <livewire:room.messages :room="$room" :messages="$messages" />
 
 
                 <livewire:room.new-message :room="$room" />
