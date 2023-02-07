@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     use HasFactory;
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
