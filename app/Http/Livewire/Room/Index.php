@@ -13,6 +13,7 @@ class Index extends Component
         return view('livewire.room.index',compact('rooms'));
     }
     protected $listeners = [
-        'room.added' => '$refresh'
+        'room.added' => '$refresh',
+        'echo-private:room.added,Room\\RoomAdded' => '$refresh'
     ];
 }

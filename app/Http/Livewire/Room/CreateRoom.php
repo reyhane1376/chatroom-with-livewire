@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Room;
 
+use App\Events\Room\RoomAdded;
 use Livewire\Component;
 
 class CreateRoom extends Component
@@ -21,6 +22,7 @@ class CreateRoom extends Component
         ]);
         $this->name = '';
         $this->emit('room.added');
+        broadcast(new RoomAdded())->toOthers();
     }
     protected $rules = [
         'name' => 'required|min:2|unique:rooms,name'
