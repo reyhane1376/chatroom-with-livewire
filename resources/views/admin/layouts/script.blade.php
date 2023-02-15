@@ -1,23 +1,39 @@
-
-    <script src="{{ asset('admin-assets/js/jquery-3.5.1.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="{{ asset('admin-assets/js/bootstrap/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('admin-assets/js/grid.js') }}"></script>
-    <script src="{{ asset('admin-assets/select2/js/select2.min.js') }}"></script>
-    <script src="{{ asset('admin-assets/sweetalert/sweetalert2.min.js') }}"></script>
-    <script>
-        let notificationDropdown = document.getElementById('header-notification-toggle');
-        notificationDropdown.addEventListener('click', function(){
-            console.log('yes');
-
-            $.ajax({
-                type : "POST",
-                url : '/admin/notification/read-all',
-                data : {_token: "{{ csrf_token() }}" },
-                success : function(){
-                    console.log('yes');
-                }
-            })
-        });
+<script src="{{ asset('admin-assets/js/jquery/dist/jquery.min.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('admin-assets/css/bootstrap-rtl-master/dist/js/bootstrap-rtl.min.js') }}"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="{{ asset('admin-assets/css/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
+    <!--slimscroll JavaScript -->
+    <script src="{{ asset('admin-assets/js/jquery.slimscroll.js') }}"></script>
+    <!--Wave Effects -->
+    <script src="{{ asset('admin-assets/js/waves.js') }}"></script>
+    <!--Counter js -->
+    <script src="{{ asset('admin-assets/js/waypoints/lib/jquery.waypoints.js') }}"></script>
+    <script src="{{ asset('admin-assets/js/counterup/jquery.counterup.min.js') }}"></script>
+    <!--Morris JavaScript -->
+    <script src="{{ asset('admin-assets/js/raphael/raphael-min.js') }}"></script>
+    <script src="{{ asset('admin-assets/css/morrisjs/morris.js') }}"></script>
+    <!-- chartist chart -->
+    <script src="{{ asset('admin-assets/css/chartist-js/dist/chartist.min.js') }}"></script>
+    <script src="{{ asset('admin-assets/css/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js') }}">
     </script>
+    <!-- Calendar JavaScript -->
+    <script src="{{ asset('admin-assets/js/moment/moment.js') }}"></script>
+    <script src='{{ asset('admin-assets/css/calendar/dist/fullcalendar.min.js') }}'></script>
+    <script src="{{ asset('admin-assets/css/calendar/dist/cal-init.js') }}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ asset('admin-assets/js/custom.min.js') }}"></script>
+    <script src="{{ asset('admin-assets/js/dashboard1.js') }}"></script>
+    <!-- Custom tab JavaScript -->
+    <script src="{{ asset('admin-assets/js/cbpFWTabs.js') }}"></script>
+    <script type="text/javascript">
+        (function() {
+            [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
+                new CBPFWTabs(el);
+            });
+        })();
 
+    </script>
+    <script src="{{ asset('admin-assets/css/toast-master/js/jquery.toast.js') }}"></script>
+    <!--Style Switcher -->
+    <script src="{{ asset('admin-assets/css/styleswitcher/jQuery.style.switcher.js') }}"></script>

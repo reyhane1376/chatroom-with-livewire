@@ -37,12 +37,9 @@ Broadcast::channel('room.chat.{room}', function ($user) {
         ['id', 'name']
     );
 });
-Broadcast::channel('room.chat.notif.{roomId}', function ($user, $roomId) {
-    $users = \App\Models\Room::find($roomId)->users()->get();
-    //    ->except(Auth::user()->id
-    foreach ($users as $selectUser) {
-        if ($selectUser->id == $user->id) {
-            return true;
-        }
-    }
+Broadcast::channel('room.chat.notif.{userSelect}', function ($user,$userSelect) {
+    return (int) $user->id === (int) $userSelect;
 });
+//     Broadcast::channel('room.chat.notif.room', function ($user) {
+//         return true;
+// });

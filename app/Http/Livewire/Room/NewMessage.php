@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Room;
 
 use App\Events\Room\MessageAdded;
 use App\Events\Room\MessageAddedNotif;
+use App\Events\Room\MessageAddedNotifRoom;
 use App\Models\Room;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -28,8 +29,11 @@ class NewMessage extends Component
             ]);
             $this->message = '';
             $this->emit('message.added', $message->id);
+            $users = $this->room->users()->get();
             broadcast(new MessageAdded($this->room->id, $message->id))->toOthers();
-            broadcast(new MessageAddedNotif($this->room->id, $userId,$message))->toOthers();
+            foreach ($users as $userSend) {
+                broadcast(new MessageAddedNotif($this->room->id, $userId, $message, $userSend->id))->toOthers();
+            }
         } else {
             abort(403);
         }

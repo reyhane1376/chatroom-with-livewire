@@ -1,42 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 
 <head>
     @include('admin.layouts.head-tag')
     @yield('head-tag')
-
 </head>
 
-<body dir="rtl">
-
+<body class="fix-header">
+        <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
     @include('admin.layouts.header')
-
-
-
-    <section class="body-container">
-
-        @include('admin.layouts.sidebar')
-
-
-        <section id="main-body" class="main-body">
-
-            @yield('content')
-
-        </section>
-    </section>
-
-
+    @include('admin.layouts.sidebar')
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        @yield('content')
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
     @include('admin.layouts.script')
     @yield('script')
-
-    <section class="toast-wrapper flex-row-reverse">
-        @include('admin.alerts.toast.success')
-        @include('admin.alerts.toast.error')
-    </section>
-
-    @include('admin.alerts.sweetalert.error')
-    @include('admin.alerts.sweetalert.success')
-
-
 </body>
+
 </html>

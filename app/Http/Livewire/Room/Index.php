@@ -8,11 +8,13 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    public $user;
     public function render()
     {
+        $this->user = auth()->user()->id;
         $rooms = User::find(auth()->user()->id)->rooms()->latest()->get();
 
-        return view('livewire.room.index',compact('rooms'));
+        return view('livewire.room.index', compact('rooms'));
     }
 
     public function delete($roomId)
@@ -25,12 +27,18 @@ class Index extends Component
         return [
             'room.added' => '$refresh',
             'echo-private:room.added,Room\\RoomAdded' => '$refresh',
-            "echo-private:room.added.notif,Room\\RoomAddedNotif" => 'test'
+            "echo-private:room.chat.notif.{$this->user},Room\\MessageAddedNotif" => "notification"
         ];
     }
-
-    public function test()
+    public function notification($payload)
     {
-//        dd('hi');
+        $roomName = Room::find($payload['roomId'])->name;
+        $data = [
+            'roomName' => $roomName,
+            'userName' => $payload['userName'],
+            'message' => $payload['message']
+        ];
+        $this->emit('notification',$data);
     }
+
 }

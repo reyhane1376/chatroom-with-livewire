@@ -18,26 +18,5 @@
 </div>
 @endif
 @push('scripts')
-<script>
-    $(document).ready(function (){
-            if (document.hasFocus()) {
-                Livewire.on('notification', data => {
-                    if (Notification.permission !== 'granted')
-                       Notification.requestPermission();
-                     else {
-                       var notification = new Notification(data['userName'] + ' say in ' + data['roomName'], {
-                        body: 'Hey there! You\'ve been notified!',
-                         });
-                    notification.onclick = function() {
-                     window.open('http://stackoverflow.com/a/13328397/1269037');
-  };
- }
-                });
 
-            }else{
-
-            }
-        })
-
-</script>
 @endpush
