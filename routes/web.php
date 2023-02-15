@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::prefix('admin')->middleware('auth','role:superAdmin')->namespace('Admin')->group(function () {
+Route::prefix('admin')->middleware('auth', 'role:superAdmin')->namespace('Admin')->group(function () {
     Route::get('/', [\App\Http\Controllers\AdminDashboardController::class, 'index'])->name('admin.home');
     Route::prefix('user')->namespace('User')->group(function () {
 
@@ -63,9 +63,12 @@ Route::prefix('admin')->middleware('auth','role:superAdmin')->namespace('Admin')
         });
     });
 });
-Route::middleware('auth')->group(function (){
-    Route::get('/rooms',\App\Http\Livewire\Room\Index::class);
-    Route::middleware('privateChat')->get('/rooms/{room:slug}',\App\Http\Livewire\Room\SingleRoom::class)->name('single.room');
+// Route::middleware('auth')->group(function (){
+//     Route::get('/rooms',\App\Http\Livewire\Room\Index::class)->name('rooms');
+//     Route::middleware('privateChat')->get('/rooms/{room:slug}',\App\Http\Livewire\Room\SingleRoom::class)->name('single.room');
+// });
+Route::middleware('auth')->group(function () {
+    Route::get('/rooms', \App\Http\Livewire\chat\Room::class)->name('chat-rooms');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -77,4 +80,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

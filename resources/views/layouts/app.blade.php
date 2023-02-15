@@ -53,10 +53,7 @@
       }
     });
   } 
-        });
-    </script>
-    <script>
-        $(document).ready(function (){
+
                 if (document.hasFocus()) {
                     Livewire.on('notification', data => {
                         if (Notification.permission !== 'granted')

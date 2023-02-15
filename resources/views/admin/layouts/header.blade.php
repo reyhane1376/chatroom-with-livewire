@@ -7,15 +7,15 @@
             <!-- Logo -->
             <a class="logo" href="index.html">
                 <!-- Logo icon image, you can use font-icon also --><b>
-                    <!--This is dark logo icon--><img src="../plugins/images/admin-logo.png" alt="home"
+                    <!--This is dark logo icon--><img src="{{ asset('admin-assets/images/admin-logo.png') }}" alt="home"
                         class="dark-logo" />
-                    <!--This is light logo icon--><img src="../plugins/images/admin-logo-dark.png" alt="home"
+                    <!--This is light logo icon--><img src="{{ asset('admin-assets/images/admin-logo-dark.png') }}" alt="home"
                         class="light-logo" />
                 </b>
                 <!-- Logo text image you can use text also --><span class="hidden-xs">
-                    <!--This is dark logo text--><img src="../plugins/images/admin-text.png" alt="home"
+                    <!--This is dark logo text--><img src="{{ asset('admin-assets/images/admin-text.png') }}" alt="home"
                         class="dark-logo" />
-                    <!--This is light logo text--><img src="../plugins/images/admin-text-dark.png" alt="home"
+                    <!--This is light logo text--><img src="{{ asset('admin-assets/images/admin-text-dark.png') }}" alt="home"
                         class="light-logo" />
                 </span>
             </a>
@@ -37,7 +37,7 @@
                     <li>
                         <div class="message-center">
                             <a href="#">
-                                <div class="user-img"> <img src="../plugins/images/users/pawandeep.jpg" alt="user"
+                                <div class="user-img"> <img src="{{ asset('admin-assets/images/users/pawandeep.jpg') }}" alt="user"
                                         class="img-circle"> <span class="profile-status online pull-right"></span>
                                 </div>
                                 <div class="mail-contnet">
@@ -46,7 +46,7 @@
                                 </div>
                             </a>
                             <a href="#">
-                                <div class="user-img"> <img src="../plugins/images/users/sonu.jpg" alt="user"
+                                <div class="user-img"> <img src="{{ asset('admin-assets/images/users/sonu.jpg') }}" alt="user"
                                         class="img-circle"> <span class="profile-status busy pull-right"></span>
                                 </div>
                                 <div class="mail-contnet">
@@ -55,7 +55,7 @@
                                 </div>
                             </a>
                             <a href="#">
-                                <div class="user-img"> <img src="../plugins/images/users/arijit.jpg" alt="user"
+                                <div class="user-img"> <img src="{{ asset('admin-assets/images/users/arijit.jpg') }}" alt="user"
                                         class="img-circle"> <span class="profile-status away pull-right"></span>
                                 </div>
                                 <div class="mail-contnet">
@@ -64,7 +64,7 @@
                                 </div>
                             </a>
                             <a href="#">
-                                <div class="user-img"> <img src="../plugins/images/users/pawandeep.jpg" alt="user"
+                                <div class="user-img"> <img src="{{ asset('admin-assets/images/users/pawandeep.jpg') }}" alt="user"
                                         class="img-circle"> <span class="profile-status offline pull-right"></span>
                                 </div>
                                 <div class="mail-contnet">
@@ -223,7 +223,7 @@
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img
-                        src="../plugins/images/users/varun.jpg" alt="user-img" width="36" class="img-circle"><b
+                        src="{{ asset('admin-assets/images/users/varun.jpg') }}" alt="user-img" width="36" class="img-circle"><b
                         class="hidden-xs">Steave</b><span class="caret"></span> </a>
                 <ul class="dropdown-menu dropdown-user animated flipInY">
                     <li>

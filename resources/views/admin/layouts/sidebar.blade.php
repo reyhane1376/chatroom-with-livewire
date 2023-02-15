@@ -9,7 +9,7 @@
         </div>
         <ul class="nav" id="side-menu">
             <li class="user-pro">
-                <a href="#" class="waves-effect"><img src="../plugins/images/users/varun.jpg" alt="user-img"
+                <a href="#" class="waves-effect"><img src="{{ asset('admin-assets/images/users/varun.jpg') }}" alt="user-img"
                         class="img-circle"> <span class="hide-menu"> Steve Gection<span class="fa arrow"></span></span>
                 </a>
                 <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
@@ -165,7 +165,7 @@
             <li><a href="inbox.html" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span
                         class="hide-menu">Apps<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href="chat.html"><i class="ti-comments-smiley fa-fw"></i><span
+                    <li><a href="{{ route('chat-rooms') }}"><i class="ti-comments-smiley fa-fw"></i><span
                                 class="hide-menu">Chat-message</span></a></li>
                     <li><a href="javascript:void(0)" class="waves-effect"><i class="ti-desktop fa-fw"></i><span
                                 class="hide-menu">Inbox</span><span class="fa arrow"></span></a>
