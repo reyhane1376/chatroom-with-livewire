@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -17,11 +19,30 @@ use Illuminate\Support\Facades\Broadcast;
 //    return (int) $user->id === (int) $id;
 //});
 Broadcast::channel('room.added', function ($user) {
-//    return (int) $user->id === (int) $id;
+    //    return (int) $user->id === (int) $id;
     return true;
 });
+Broadcast::channel('room.added.notif', function ($user) {
+    //    return (int) $user->id === (int) $id;
+    return true;
+    //    if($userInRoomId == 1){
+    //        return true;
+    //    }
+    //    return false;
+});
 Broadcast::channel('room.chat.{room}', function ($user) {
-//    return (int) $user->id === (int) $id;
-    return Arr::only($user->toArray(),
-    ['id', 'name']);
+    //    return (int) $user->id === (int) $id;
+    return Arr::only(
+        $user->toArray(),
+        ['id', 'name']
+    );
+});
+Broadcast::channel('room.chat.notif.{roomId}', function ($user, $roomId) {
+    $users = \App\Models\Room::find($roomId)->users()->get();
+    //    ->except(Auth::user()->id
+    foreach ($users as $selectUser) {
+        if ($selectUser->id == $user->id) {
+            return true;
+        }
+    }
 });

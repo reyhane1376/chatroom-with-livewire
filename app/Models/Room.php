@@ -14,9 +14,9 @@ class Room extends Model
         return $this->hasMany(Message::class);
     }
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 
     public function path()
@@ -25,6 +25,7 @@ class Room extends Model
     }
     protected $fillable = [
         'name',
-        'slug'
+        'slug',
+        'user_id'
     ];
 }

@@ -16,9 +16,10 @@ class Messages extends Component
     }
     public function getListeners()
     {
-       return [
+        return [
             'message.added' => 'prepandMessage',
-           "echo-private:room.chat.{$this->room->id},Room\\MessageAdded" => "prependMessageFromBroadcast"
+            "echo-private:room.chat.{$this->room->id},Room\\MessageAdded" => "prependMessageFromBroadcast",
+            "echo-private:room.chat.notif.{$this->room->id},Room\\MessageAddedNotif" => "test"
         ];
     }
 
@@ -32,4 +33,13 @@ class Messages extends Component
         $this->prepandMessage($payload['messageId']);
     }
 
+    public function test($payload)
+    {
+        $roomName = Room::find($payload['roomId'])->name;
+        $data = [
+            'roomName' => $roomName,
+            'userName' =>$payload['userName'],
+        ];
+        $this->emit('notification',$data);
+    }
 }

@@ -24,7 +24,7 @@ class MessageAdded implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($roomId,$messageId)
+    public function __construct($roomId, $messageId)
     {
         $this->roomId = $roomId;
         $this->messageId = $messageId;
