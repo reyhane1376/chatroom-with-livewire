@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use \App\Http\Controllers\Admin\User\AdminUserController;
 use \App\Http\Controllers\admin\user\RoleController;
 use \App\Http\Controllers\admin\user\PermissionController;
+use App\Http\Livewire\Chat\Room;
+use App\Http\Livewire\Chat\SingleRoom;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,7 +70,8 @@ Route::prefix('admin')->middleware('auth', 'role:superAdmin')->namespace('Admin'
 //     Route::middleware('privateChat')->get('/rooms/{room:slug}',\App\Http\Livewire\Room\SingleRoom::class)->name('single.room');
 // });
 Route::middleware('auth')->group(function () {
-    Route::get('/rooms', \App\Http\Livewire\chat\Room::class)->name('chat-rooms');
+    Route::get('/rooms', Room::class)->name('chat-rooms');
+    Route::middleware('privateChat')->get('/rooms/{room:slug}',SingleRoom::class)->name('single.room');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -228,7 +228,7 @@
                 <ul class="dropdown-menu dropdown-user animated flipInY">
                     <li>
                         <div class="dw-user-box">
-                            <div class="u-img"><img src="../plugins/images/users/varun.jpg" alt="user" /></div>
+                            <div class="u-img"><img src="{{ asset('admin-assets/images/users/varun.jpg') }}" alt="user" /></div>
                             <div class="u-text">
                                 <h4>Steave Jobs</h4>
                                 <p class="text-muted">varun@gmail.com</p><a href="profile.html"
@@ -243,7 +243,13 @@
                     <li role="separator" class="divider"></li>
                     <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                    <li>
+                        <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button href="{{ route('logout') }}"><i class="fa fa-power-off"></i> Logout</button>
+                        </form>
+                   
+                    </li>
                 </ul>
                 <!-- /.dropdown-user -->
             </li>
