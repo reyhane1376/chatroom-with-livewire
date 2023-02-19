@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::prefix('admin')->middleware('auth', 'role:superAdmin')->namespace('Admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->namespace('Admin')->group(function () {
     Route::get('/', [\App\Http\Controllers\AdminDashboardController::class, 'index'])->name('admin.home');
     Route::prefix('user')->namespace('User')->group(function () {
 
@@ -71,7 +71,7 @@ Route::prefix('admin')->middleware('auth', 'role:superAdmin')->namespace('Admin'
 // });
 Route::middleware('auth')->group(function () {
     Route::get('/rooms', Room::class)->name('chat-rooms');
-    Route::middleware('privateChat')->get('/rooms/{room:slug}',SingleRoom::class)->name('single.room');
+    Route::middleware('privateChat')->get('/rooms/{room:slug}', SingleRoom::class)->name('single.room');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');

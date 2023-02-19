@@ -25,6 +25,7 @@
                                 class="hide-menu">Logout</span></a></li>
                 </ul>
             </li>
+            @role('superAdmin')
             <li> <a href="index.html" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i>
                     <span class="hide-menu"> Dashboard <span class="fa arrow"></span> <span
                             class="label label-rouded label-inverse pull-right">4</span></span></a>
@@ -37,6 +38,7 @@
                                 3</span></a> </li>
                 </ul>
             </li>
+          
             <li> <a href="#" class="waves-effect"><i class="mdi mdi-format-color-fill fa-fw"></i> <span
                         class="hide-menu">UI Elements<span class="fa arrow"></span> <span
                             class="label label-rouded label-info pull-right">20</span> </span></a>
@@ -162,6 +164,7 @@
                     </li>
                 </ul>
             </li>
+            @endrole()
             <li><a href="inbox.html" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span
                         class="hide-menu">Apps<span class="fa arrow"></span></span></a>
                 <ul class="nav nav-second-level">
@@ -191,6 +194,7 @@
                     </li>
                 </ul>
             </li>
+            @role('superAdmin')
             <li class="devider"></li>
             <li> <a href="forms.html" class="waves-effect"><i class="mdi mdi-clipboard-text fa-fw"></i> <span
                         class="hide-menu">Forms<span class="fa arrow"></span></span></a>
@@ -334,6 +338,7 @@
                         class="hide-menu">Gallery</span></a></li>
             <li><a href="faq.html" class="waves-effect"><i class="fa fa-circle-o text-success"></i> <span
                         class="hide-menu">Faqs</span></a></li>
+                        @endrole()
         </ul>
     </div>
 </div>

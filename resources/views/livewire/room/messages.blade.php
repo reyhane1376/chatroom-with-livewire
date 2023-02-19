@@ -17,6 +17,3 @@
     Waiting For First Message
 </div>
 @endif
-@push('scripts')
-
-@endpush
